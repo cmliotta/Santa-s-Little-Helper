@@ -4,7 +4,7 @@ class CreateTables < ActiveRecord::Migration
       t.string :name
       t.string :email
       t.string :password_hash
-      t.integer :hoo_id # giftee, hoo
+      t.integer :hoo_id # giftee, hoo, gift receiver
       t.integer :group_id
 
       t.timestamps

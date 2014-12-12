@@ -6,11 +6,10 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: true
 
   def authenticate(password)
-    self.password_hash = password
-  end
+    if BCrypt::Password.new(password_hash) == password
 
-  def password
-    @password ||= BCrypt::Password.new(password_hash)
+      true
+    end
   end
 
   def password=(new_password)

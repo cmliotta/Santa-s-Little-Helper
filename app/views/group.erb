@@ -11,7 +11,7 @@
 
 <center><p>Welcome, <%=@user.name%>!</p>
 
-  <h2><%="Your hoo is #{@user.hoo.name.capitalize} (#{@user.hoo.id})! "%></h2>
+  <h2><%="Your hoo is #{@user.hoo.name.capitalize} (#{@user.hoo.id})! " if @user.hoo %></h2>
 
 <%@all_users.sort.each.with_index do |user, index|%>
 
