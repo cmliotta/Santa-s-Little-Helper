@@ -4,14 +4,18 @@
   <p>yeah baby, ya</p>
 </div>
 
+<!-- FIXME: dry this junk out by putting the header in layout.erb -->
+
 <div id="body_container2">
   <div class="login_container">
+
 <center><p>Welcome, <%=@user.name%>!</p>
-<p> You are logged in.</p>
+
+  <h2><%="Your hoo is #{@user.hoo.name.capitalize} (#{@user.hoo.id})! "%></h2>
 
 <%@all_users.sort.each.with_index do |user, index|%>
 
-    <p><%="#{index + 1}:             #{user.name}. email: #{user.email}"%></p>
+    <p><%="#{index + 1}: #{user.name}. email: #{user.email}"%></p>
 
 <%end%>
 

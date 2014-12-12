@@ -1,6 +1,5 @@
+# render home page
 get '/' do
-  # render home page
- #TODO: Show all users if user is signed in
   erb :index
 end
 
@@ -28,11 +27,12 @@ delete '/group/:user_id' do
 end
 
 get '/group/:user_id' do
-  if session[:user_id]
-    @all_users = User.all
+  if params[:user_id].to_i == session[:user_id]
     @user = User.find(params[:user_id])
+    @all_users = User.all
     erb :group
   else
+    session.delete(:user_id)
     redirect '/'
   end
 end
