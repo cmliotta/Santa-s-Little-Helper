@@ -15,8 +15,10 @@ post '/login' do
   if user && user.authenticate(params[:password])
     session[:user_id] = user.id
     redirect "/group/#{user.id}"
-  else
-    redirect '/'
+  elsif user == nil
+    redirect '/?error=username'
+  elsif !user.authenticate(params[:password])
+    redirect '/?error=password'
   end
 end
 

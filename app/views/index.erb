@@ -4,6 +4,12 @@
   <img src="http://i.imgur.com/WPZSONU.png">
   <h1>Welcome to Santa's Little Helper</h1>
   <p>yeah baby, ya</p>
+  <% @error = params[:error] %>
+  <% if @error == "password" %>
+  <%= "Incorrect password.  Please try again" %>
+  <% elsif @error == "username" %>
+  <%= "Username not recognized.  Please try again" %>
+  <% end %>
 </div>
 
 
@@ -21,3 +27,7 @@
     </div>
   </a>
 </div>
+
+
+
+

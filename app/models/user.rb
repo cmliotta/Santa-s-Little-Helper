@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: true
 
   def authenticate(password)
-    self.password_hash = password
+    self.password_hash == password
   end
 
   def password
