@@ -1,0 +1,28 @@
+<div id="header">
+  <img src="http://i.imgur.com/WPZSONU.png">
+  <h1>Welcome to Santa's Little Helper</h1>
+  <p>yeah baby, ya</p>
+</div>
+
+<!-- FIXME: dry this junk out by putting the header in layout.erb -->
+
+<div id="body_container2">
+  <div class="login_container">
+
+<center><p>Welcome, <%=@user.name%>!</p>
+
+  <h2><%="Your hoo is #{@user.hoo.name.capitalize} (#{@user.hoo.id})! "%></h2>
+
+<%@all_users.sort.each.with_index do |user, index|%>
+
+    <p><%="#{index + 1}: #{user.name}. email: #{user.email}"%></p>
+
+<%end%>
+
+
+<form  method="post" action="/group/<%=@user.id%>">
+  <input type="hidden" name="_method" value="delete"/>
+  <input type="submit" value="sign out"/></center>
+</form>
+</div>
+</div>
