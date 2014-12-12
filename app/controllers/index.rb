@@ -10,6 +10,7 @@ end
 get '/login' do
   erb :login
 end
+
 post '/login' do
   user = User.find_by(email: params[:email])
   if user && user.authenticate(params[:password])
@@ -28,7 +29,8 @@ end
 
 get '/group/:user_id' do
   if session[:user_id]
-    @user_id = params[:user_id]
+    @all_users = User.all
+    @user = User.find(params[:user_id])
     erb :group
   else
     redirect '/'
@@ -38,8 +40,9 @@ end
 #----------- USERS -----------
 
 get '/users/new' do
-  erb :sign_up
+  erb :signup
 end
+
 post '/users' do
   User.create!(params[:user])
   redirect to '/login'

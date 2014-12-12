@@ -1,5 +1,24 @@
-<p>this is a secret! you must be logged in.</p>
-<form  method="post" action="/group/<%=@user_id%>">
+<div id="header">
+  <img src="http://i.imgur.com/WPZSONU.png">
+  <h1>Welcome to Santa's Little Helper</h1>
+  <p>yeah baby, ya</p>
+</div>
+
+<div id="body_container2">
+  <div class="login_container">
+<center><p>Welcome, <%=@user.name%>!</p>
+<p> You are logged in.</p>
+
+<%@all_users.sort.each.with_index do |user, index|%>
+
+    <p><%="#{index + 1}:             #{user.name}. email: #{user.email}"%></p>
+
+<%end%>
+
+
+<form  method="post" action="/group/<%=@user.id%>">
   <input type="hidden" name="_method" value="delete"/>
-  <input type="submit" value="sign out"/>
+  <input type="submit" value="sign out"/></center>
 </form>
+</div>
+</div>
