@@ -9,6 +9,8 @@
   <%= "Incorrect password.  Please try again" %>
   <% elsif @error == "username" %>
   <%= "Username not recognized.  Please try again" %>
+  <% elsif @error == "email" %>
+  <%= "This e-mail address is already in use.  Please select another or log-in." %>
   <% end %>
 </div>
 
