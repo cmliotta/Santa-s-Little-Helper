@@ -46,9 +46,10 @@ get '/users/new' do
 end
 
 post '/users' do
-  User.create!(params[:user])
-  # If email is duplicated,
-  # redirect to '/?error=username'
-  # else
-  redirect to '/login'
+  user = User.create(params[:user])
+  if user.valid?
+    redirect '/login'
+  else
+    redirect '/?error=email'
+  end
 end
